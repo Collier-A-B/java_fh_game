@@ -48,9 +48,10 @@ public class PowerUp {
         g2d.fillRect((int)x, (int)y, SIZE, SIZE);
 
         // Draw the glow effect
+        float alpha = Math.max(0.0f, Math.min(1.0f, (float)(0.3 * glowEffect)));
         java.awt.AlphaComposite alphaComposite = java.awt.AlphaComposite.getInstance(
             java.awt.AlphaComposite.SRC_OVER, 
-            (float)(0.3 * glowEffect)
+            alpha
         );
         g2d.setComposite(alphaComposite);
         g2d.fillRect((int)x - 5, (int)y - 5, SIZE + 10, SIZE + 10);

@@ -21,12 +21,16 @@ public class Main {
             }
         } else {
             SwingUtilities.invokeLater(() -> {
-                JFrame frame = new JFrame("Neon Runner");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JFrame frame = new JFrame("Neon Runner");                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setResizable(false);
                 
                 GamePanel gamePanel = new GamePanel();
                 frame.add(gamePanel);
+                frame.addWindowListener(new java.awt.event.WindowAdapter() {
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
                 
                 frame.pack();
                 frame.setLocationRelativeTo(null);
